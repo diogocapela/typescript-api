@@ -1,3 +1,15 @@
+dist/
+
+# macOS
+*.DS_Store
+
+# JetBrains
+.idea/
+
+# Visual Studio
+.vs/
+.vscode/
+
 # Logs
 logs
 *.log
