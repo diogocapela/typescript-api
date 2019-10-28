@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "ef6aaefb-a1a4-43aa-850b-1f7c36c2803c",
+		"name": "typescript-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/articles",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/articles/:slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/articles/slug-01",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"articles",
+						"slug-01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/articles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"slug\": \"slug-01\",\n\t\"title\": \"Title 01\"\n}"
+				},
+				"url": {
+					"raw": "{{api}}/articles",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/articles/:slug",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"slug\": \"slug-01\",\n\t\"title\": \"Title 01\"\n}"
+				},
+				"url": {
+					"raw": "{{api}}/articles/slug-01",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"articles",
+						"slug-01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/articles/:slug",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"slug\": \"slug-01\",\n\t\"title\": \"Title 01\"\n}"
+				},
+				"url": {
+					"raw": "{{api}}/articles/slug-01",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"articles",
+						"slug-01"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "7f4f23e8-7f46-4298-bf13-e56452da4867",
+			"key": "api",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

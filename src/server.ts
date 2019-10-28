@@ -3,6 +3,11 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
+import articlesRouter from './modules/articles/articles.router';
+
+import logger from './utils/logger';
+import { connect } from './database';
+
 const app: Application = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -12,15 +17,21 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('Hello!');
-});
+app.use('/articles', articlesRouter);
 
-app.listen(app.get('port'), 'localhost', () => {
-  console.log(
-    `The server is now running at http://localhost:${app.get(
-      'port',
-    )} in ${app.get('env')} mode.`,
-  );
-  console.log('Press CTRL-C to stop.\n');
-});
+(async () => {
+    const port = app.get('port');
+    const env = app.get('env');
+
+    try {
+        await connect();
+        app.listen(port, 'localhost', () => {
+            logger.log(
+                `The server is now running at http://localhost:${port} in ${env} mode.`,
+            );
+            logger.log('Press CTRL-C to stop.\n');
+        });
+    } catch (error) {
+        logger.error(error);
+    }
+})();
