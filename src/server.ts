@@ -26,9 +26,7 @@ app.use('/articles', articlesRouter);
     try {
         await connect();
         app.listen(port, 'localhost', () => {
-            logger.log(
-                `The server is now running at http://localhost:${port} in ${env} mode.`,
-            );
+            logger.log(`The server is now running at http://localhost:${port} in ${env} mode.`);
             logger.log('Press CTRL-C to stop.\n');
         });
     } catch (error) {
